@@ -6,7 +6,7 @@ import Intro from "./Intro";
 
 function MainPage() {
   return (
-    <div className="">
+    <div className=''>
       <Nav></Nav>
       <main className="flex justify-center">
         <div className="w-3/4 flex justify-center">
