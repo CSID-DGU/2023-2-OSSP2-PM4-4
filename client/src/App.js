@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MainPage from "./main/MainPage";
 import MyPage from "./mypage/MyPage";
+import MyPageResume from "./mypage/MyPageResume";
 import Project_ListPage    from "./forum/page/Project_ListPage";
 import Contest_ListPage from "./forum/page/Contest_ListPage";
 import Contest_Info_Post   from "./forum/page/Contest_Info_Post";
@@ -9,9 +11,19 @@ import Contest_Team_ListTab from "./forum/page/Contest_Team_ListTab";
 import Contest_Team_WriteView   from "./forum/page/Contest_Team_Write(View)";
 import Contest_Team_WritePost   from "./forum/page/Contest_Team_Write(Post)"
 import ChatListPage from "./chat/ChatListPage";
-import ChatRoomSocket from "./chat/ChatRoomSocket";
 import SignUpPage from "./signup/SignUpPage";
+import MyPageReview from "./mypage/MyPageReview";
+import MyPageApply from "./mypage/MyPageApply";
+import MyPageWritten from "./mypage/MyPageWritten";
+import MyPageReward from "./mypage/MyPageReward";
+import ReportList from "./adminpage/ReportList";
+import PostRequest from "./adminpage/PostRequest";
+import UserManagement from "./adminpage/UserManagement";
+import DeleteLog from "./adminpage/DeleteLog";
 import SignInPage from "./signin/SignInPage";
+import MyPageJoined from "./mypage/MyPageJoined";
+import ChatRoomSocket from "./chat/ChatRoomSocket";
+
 
 function App() {
     return (
@@ -30,6 +42,16 @@ function App() {
                 <Route path="/sign_in" element={<SignInPage/>}></Route>
                 <Route path="/sign_up" element={<SignUpPage/>}></Route>
                 <Route path="/my_page" element={<MyPage/>}></Route>
+                <Route path="/my_resume" element={<MyPageResume/>}></Route>
+                <Route path="/my_review" element={<MyPageReview/>}></Route>
+                <Route path="/my_apply" element={<MyPageApply/>}></Route>
+                <Route path="/my_joined" element={<MyPageJoined/>}></Route>
+                <Route path="/my_written" element={<MyPageWritten/>}></Route>
+                <Route path="/my_reward" element={<MyPageReward/>}></Route>
+                <Route path="/admin_post_request" element={<PostRequest/>}></Route>
+                <Route path="/admin_report" element={<ReportList/>}></Route>
+                <Route path="/admin_user_management" element={<UserManagement/>}></Route>
+                <Route path="/admin_delete_log" element={<DeleteLog/>}></Route>
             </Routes>
         </Router>
     );
