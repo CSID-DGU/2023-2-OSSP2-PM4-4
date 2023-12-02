@@ -2,14 +2,13 @@ import { ChatIcon } from "./ChatIcon";
 import { MyPageIcon } from "./MyPageIcon";
 import { Link, useNavigate } from "react-router-dom";
 
-const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
+const Nav = () => {
   const navigate = useNavigate();
   const handleLogout = () => {
     // 로그아웃 처리 후
     // ...
-
-    setIsLoggedIn(false); // 로그아웃 상태로 변경
-    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+    localStorage.removeItem('isLoggedIn');
     navigate('/');
   };
   return (
@@ -64,7 +63,7 @@ const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
                 </button>
               </div>
               <div className="flex items-center ml-[30px]">
-                {isLoggedIn ? (
+                {localStorage.getItem('isLoggedIn') ? (
                     <button
                         className="border-[1px] border-[#243c5a] rounded-lg p-[8px] hover:bg-blue-400 hover:text-[#ffffff]"
                         onClick={handleLogout}
@@ -83,7 +82,7 @@ const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
                 )}
               </div>
               <div className="flex items-center ml-[30px]">
-                {isLoggedIn? (<button
+                {localStorage.getItem('isLoggedIn')? (<button
                     onClick={() => {
                       navigate("/my_page");
                       //navigate("/admin_post_request");
@@ -91,7 +90,6 @@ const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
                 >
                   <MyPageIcon></MyPageIcon>
                 </button>):(<button
-
                 >
                   <MyPageIcon></MyPageIcon>
                 </button>)}
