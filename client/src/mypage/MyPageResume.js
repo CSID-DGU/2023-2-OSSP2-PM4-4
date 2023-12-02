@@ -25,6 +25,7 @@ function MyPageResume() {
     const [city, setCity] = useState(null);
     const [district, setDistrict] = useState(null);
     const [school, setSchool] = useState(null);
+    const [major, setMajor] = useState(null);
     const [eduState, setEduState] = useState(null);
     const [email, setEmail] = useState(null);
     const [phoneNumber, setPhoneNumber] = useState("010-1234-5678");
@@ -72,8 +73,8 @@ function MyPageResume() {
                 setGender("");
             }
             setJob(resumeResponse.data.responseDto.job);
-            setCity(resumeResponse.data.responseDto.siId);
-            setDistrict(resumeResponse.data.responseDto.guId);
+            setCity(resumeResponse.data.responseDto.si.siId);
+            setDistrict(resumeResponse.data.responseDto.gu.guId);
             setSchool(resumeResponse.data.responseDto.schoolInfo.name);
             if (
                 resumeResponse.data.responseDto.schoolInfo.schoolRegister === "재학"
@@ -128,6 +129,7 @@ function MyPageResume() {
                     guId: district,
                     schoolInfo: {
                         name: school,
+                        major: major,
                         schoolRegister: eduState,
                     },
                     // awards: awards,
@@ -179,8 +181,10 @@ function MyPageResume() {
                             />
                             <EducationInput
                                 school={school}
+                                major={major}
                                 eduState={eduState}
                                 setSchool={setSchool}
+                                setMajor={setMajor}
                                 setEduState={setEduState}
                             />
                             <EmailInput email={email} setEmail={setEmail} />

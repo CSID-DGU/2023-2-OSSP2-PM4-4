@@ -28,6 +28,7 @@ function SignUpPage() {
   const [city, setCity] = useState(null);
   const [district, setDistrict] = useState(null);
   const [school, setSchool] = useState(null);
+  const [major, setMajor] = useState(null);
   const [eduState, setEduState] = useState(null);
   const [email, setEmail] = useState(null);
   const [phoneNumber, setPhoneNumber] = useState('010-1234-5678');
@@ -66,6 +67,7 @@ function SignUpPage() {
                 guId: district,
                 schoolInfo: {
                   name: school,
+                  major: major,
                   schoolRegister: eduState,
                 },
               }
@@ -221,8 +223,10 @@ function SignUpPage() {
             />
             <EducationInput
                 school={school}
+                major={major}
                 eduState={eduState}
                 setSchool={setSchool}
+                setMajor={setMajor}
                 setEduState={setEduState}
             />
             <EmailInput email={email} setEmail={setEmail} />
